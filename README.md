@@ -15,7 +15,7 @@ If your linux system uses "lua" as the shared object name for lua (for example, 
 
 You can then try to run the examples:
 
-	$ cd /usr/local/go/src/pkg/github.com/aarzilli/golua/example/
+	$ cd /usr/local/go/src/pkg/github.com/aarzilli/golua/_example/
 	$ go run basic.go
 	$ go run alloc.go
 	$ go run panic.go
