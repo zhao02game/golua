@@ -14,8 +14,8 @@
 package lua
 
 import (
-	_ "github.com/aarzilli/golua/lua/lua51"
-	_ "github.com/aarzilli/golua/lua/lua52"
-	_ "github.com/aarzilli/golua/lua/lua53"
-	_ "github.com/aarzilli/golua/lua/lua54"
+	_ "github.com/weylan/golua/lua/lua51"
+	_ "github.com/weylan/golua/lua/lua52"
+	_ "github.com/weylan/golua/lua/lua53"
+	_ "github.com/weylan/golua/lua/lua54"
 )
