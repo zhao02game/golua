@@ -207,7 +207,7 @@ func golua_interface_index_callback(gostateindex uintptr, iid uint, field_name *
 	fval := ifacevalue.FieldByName(C.GoString(field_name))
 
 	if !fval.IsValid() {
-		L.PushString("Unsupported type of field " + ifacevalue.Type().String() + "." + field_name + ": " + "valid field")
+		L.PushString("Unsupported type of field " + ifacevalue.Type().String() + "." + C.GoString(field_name) + ": " + "valid field")
 		return -1
 	}
 
