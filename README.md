@@ -1,11 +1,11 @@
 Go Bindings for the lua C API
 =========================
 
-[![Build Status](https://travis-ci.org/weylan/golua.svg?branch=master)](https://travis-ci.org/weylan/golua)
+[![Build Status](https://travis-ci.org/zhao02game/golua.svg?branch=master)](https://travis-ci.org/zhao02game/golua)
 
 Simplest way to install:
 
-	# go get github.com/weylan/golua/lua
+	# go get github.com/zhao02game/golua/lua
 
 You can then try to run the examples:
 
@@ -124,7 +124,7 @@ To link with [luajit-2.0.x](http://luajit.org/luajit.html), you can use CGO_CFLA
 ```
 $ CGO_CFLAGS=`pkg-config luajit --cflags`
 $ CGO_LDFLAGS=`pkg-config luajit --libs-only-L`
-$ go get -f -u -tags luajit github.com/weylan/golua/lua
+$ go get -f -u -tags luajit github.com/zhao02game/golua/lua
 ```
 
 CONTRIBUTORS

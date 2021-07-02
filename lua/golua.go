@@ -36,6 +36,9 @@ type State struct {
 	// Wrapped lua_State object
 	s *C.lua_State
 
+	//when call from lua coroutine s is thread Lua_state. record main thread here
+	mainThread *C.lua_State
+
 	// index of this object inside the goStates array
 	Index uintptr
 
@@ -79,8 +82,23 @@ func getGoState(gostateindex uintptr) *State {
 }
 
 //export golua_callgofunction
-func golua_callgofunction(gostateindex uintptr, fid uint) int {
+func golua_callgofunction(gostateindex uintptr, fid uint, thread *C.lua_State) int {
 	L1 := getGoState(gostateindex)
+	if L1.s != thread {
+		if L1.mainThread == nil {
+			L1.mainThread = L1.s
+		}
+
+		L1.s = thread
+	}
+
+	defer func() {
+		if L1.mainThread != nil {
+			L1.s = L1.mainThread
+			L1.mainThread = nil
+		}
+	}()
+
 	if fid < 0 {
 		panic(&LuaError{0, "Requested execution of an unknown function", L1.StackTrace()})
 	}

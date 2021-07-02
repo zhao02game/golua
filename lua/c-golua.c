@@ -76,7 +76,7 @@ int callback_function(lua_State* L)
 	size_t gostateindex = clua_getgostate(L);
 	//remove the go function from the stack (to present same behavior as lua_CFunctions)
 	lua_remove(L,1);
-	return golua_callgofunction(gostateindex, fid!=NULL ? *fid : -1);
+	return golua_callgofunction(gostateindex, fid!=NULL ? *fid : -1, L);
 }
 
 //wrapper for gchook
@@ -114,7 +114,7 @@ static int callback_c (lua_State* L)
 {
 	int fid = clua_togofunction(L,lua_upvalueindex(1));
 	size_t gostateindex = clua_getgostate(L);
-	return golua_callgofunction(gostateindex,fid);
+	return golua_callgofunction(gostateindex,fid, L);
 }
 
 void clua_pushcallback(lua_State* L)
