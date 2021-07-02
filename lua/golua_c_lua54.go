@@ -14,7 +14,7 @@ typedef struct _chunk {
 	char* toread; // chunk to read
 } chunk;
 
-LUA_API void *lua_newuserdata (lua_State *L, size_t size) {
+LUA_API void *clua_newuserdata (lua_State *L, size_t size) {
     return lua_newuserdatauv(L, size, 1);
 }
 

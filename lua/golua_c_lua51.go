@@ -14,6 +14,11 @@ typedef struct _chunk {
 	char* toread; // chunk to read
 } chunk;
 
+
+LUA_API void *clua_newuserdata (lua_State *L, size_t size) {
+    return lua_newuserdata(L, size);
+}
+
 static const char * reader (lua_State *L, void *ud, size_t *sz) {
 	chunk *ck = (chunk *)ud;
 	if (ck->size > LUAL_BUFFERSIZE) {
