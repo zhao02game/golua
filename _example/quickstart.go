@@ -1,6 +1,6 @@
 package main
 
-import "github.com/weylan/golua/lua"
+import "github.com/zhao02game/golua/lua"
 
 func adder(L *lua.State) int {
 	a := L.ToInteger(1)

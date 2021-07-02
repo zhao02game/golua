@@ -1,6 +1,6 @@
 package main
 
-import "github.com/weylan/golua/lua"
+import "github.com/zhao02game/golua/lua"
 import "fmt"
 
 func test(L *lua.State) int {

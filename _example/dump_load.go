@@ -1,10 +1,7 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/weylan/golua/lua"
-)
+import "fmt"
+import "github.com/zhao02game/golua/lua"
 
 // dumpAndLoadTest: dump a function chunk to bytecodes, then load bytecodes and call function
 func dumpAndLoadTest(L *lua.State) {
