@@ -219,8 +219,10 @@ func (L *State) callEx(nargs, nresults int, catch bool) (err error) {
 	// We must record where we put the error handler in the stack otherwise it will be impossible to remove after the pcall when nresults == LUA_MULTRET
 	erridx := L.GetTop() - nargs - 1
 	L.Insert(erridx)
+	defer func() {
+		L.Remove(erridx)
+	}()
 	r := L.pcall(nargs, nresults, erridx)
-	L.Remove(erridx)
 	if r != 0 {
 		err = &LuaError{r, L.ToString(-1), L.StackTrace()}
 		if !catch {
